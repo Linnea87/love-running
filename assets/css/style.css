@@ -1,7 +1,7 @@
-/*Google fonts import */
+/* Google fonts import */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
-/* Asterisk wildcard selector to override defult styles added by the browser*/
+/* Asterisk wildcard selector to override default styles added by the browser */
 * {
     padding: 0;
     margin: 0;
@@ -53,7 +53,7 @@ header a {
     list-style-type: none;
 }
 
-#menu>li {
+#menu > li {
     margin-bottom: 1em;
 }
 
@@ -86,14 +86,18 @@ nav {
     font-size: 2rem;
 }
 
-/* Main contant */
+/* Main content */
 main {
-    /* Make main element take up any surplus space to push footer down */
+    /* Enlarge main element to push footer down*/
     flex: 1 0 auto;
+    /* Add margin at the top to prevent content from being covered by the header */
     margin-top: 47px;
+    /* Enable flex properties for child elements */
+    display: flex;
+    flex-direction: column;
 }
 
-/* hero section */
+/* Hero section */
 #hero {
     height: 600px;
     width: 100%;
@@ -113,12 +117,11 @@ main {
     padding-left: 10px;
 }
 
-#cover-text>h2,
-#cover-text>h3 {
+#cover-text > h2, #cover-text > h3 {
     color: #ffffff;
 }
 
-/* reasons section */
+/* Reasons section */
 #reasons {
     width: 90%;
     margin: 20px auto;
@@ -130,8 +133,8 @@ main {
     font-size: 280%;
 }
 
-#benefits-physical>div,
-#benefits-mental>div {
+#benefits-physical > div,
+#benefits-mental > div {
     line-height: 20px;
     margin-bottom: 20px;
 }
@@ -142,15 +145,15 @@ main {
 
 #benefits hr {
     border-top: 1px solid #3a3a3a;
-    margin: 5px o;
+    margin: 5px 0;
 }
 
 #circle-cover-bg {
-    background: url("../images/reasons-image.webp") no-repeat center center/cover;
+    background: url('../images/reasons-image.webp') no-repeat top center / cover;
     height: 90vw;
     width: 90vw;
     margin-bottom: 20px;
-    /*makes the square image into a circle */
+    /* Makes the square image into a circle */
     border-radius: 50%;
     max-width: 300px;
     max-height: 300px;
@@ -162,12 +165,12 @@ main {
     justify-content: center;
 }
 
-/* Meetup Times section*/
+/* Meetup Times section */
 #times {
-background: url("../images/dublin-city.webp") no-repeat center center/cover;
-/* Handles responsivity without the need for a media query */
-display: flex;
-flex-wrap: wrap;
+    background: url('../images/dublin-city.webp') no-repeat center/cover;
+    /* Handles responsivity without the need for a media query */
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #times div {
@@ -179,7 +182,7 @@ flex-wrap: wrap;
      Each div will expand to fill the available space on its row */
     flex-basis: 200px;
     flex-grow: 1;
-   /* Creates a grid of meetup divs over the background image */
+    /* Creates a grid of meetup dives over the background image */
     border: 2px solid white;
 }
 
@@ -187,7 +190,7 @@ flex-wrap: wrap;
     /* Override the heading colour set in general styles */
     color: #fafafa;
 }
-    
+
 /* Gallery page */
 #photos img {
     width: 100%;
@@ -197,7 +200,59 @@ flex-wrap: wrap;
 #photos {
     line-height: 0;
 }
-/* Footer */
+
+/* Form */
+#signup {
+    background-image: url("../images/signup-image.webp");
+    background-size: cover;
+    background-position: 75%;
+    padding: 20px 10% 0 10%;
+    flex-grow: 1;
+}
+
+
+#signup-form {
+    color: #ffffff;
+    background-color: rgba(60, 60, 60, 0.6);
+    padding: 30px;
+}
+
+
+#signup-form>h2 {
+    color: #fafafa;
+    margin-bottom: 20px;
+}
+
+
+.text-input {
+    background: transparent;
+    color: #fafafa;
+    width: 100%;
+    height: 25px;
+    margin: 5px 0 20px 0;
+    border: 1px solid #fafafa;
+    border-radius: 2px;
+    padding: 0 5px;
+}
+
+
+.radio-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.join-button {
+    margin-top: 20px;
+    border-radius: 2px;
+    padding: 15px 32px;
+    font-size: 100%;
+    background-color: #454b1b;
+    color: #fafafa;
+}
+
+/* Footer */ 
 #social-networks {
     text-align: center;
     padding: 20px 0;
@@ -211,7 +266,8 @@ flex-wrap: wrap;
     padding: 5%;
     color: #3a3a3a;
 }
-/* Media query: large or landscape phone (576px and up) */
+
+/* Media query: large or landscape phones (576px and up) */
 @media screen and (min-width: 576px) {
     #photos {
         column-count: 2;
@@ -234,7 +290,7 @@ flex-wrap: wrap;
         display: flex;
     }
 
-    #menu>li {
+    #menu > li {
         padding-left: 1rem;
     }
 
@@ -268,12 +324,12 @@ flex-wrap: wrap;
         width: 100%;
     }
 
-    #benefits-physical,
-    #benefits-mental>div {
+    #benefits-physical > div,
+    #benefits-mental > div {
         width: 75%;
     }
 
-    #benefits-mental>div {
+    #benefits-mental > div {
         text-align: end;
         align-self: flex-end;
     }
@@ -282,9 +338,31 @@ flex-wrap: wrap;
     #photos {
         column-count: 3;
     }
+
+    /* Form */
+    #signup {
+        background-position: center;
+        position: relative;
+    }
+
+    #signup-form {
+        max-width: 400px;
+        position: absolute;
+        left: 10%;
+        top: 150px;
+    }
+
+    .text-input:hover {
+        border-color: #f16c6b;
+    }
+
+    .join-button:hover {
+        background-color: #fafafa;
+        color: #454b1b;
+    }
 }
 
-/* Large devices (laptops and desktops 992px and up) */
+/* Large devices (laptops and desktops, 992px and up) */
 @media screen and (min-width: 992px) {
     #menu a:hover {
         border-bottom: 1px solid #3a3a3a;
@@ -297,31 +375,29 @@ flex-wrap: wrap;
 }
 
 @media screen and (min-width: 1200px) {
-
-    /* Reasons section */
+     /* Reasons section */
     #benefits {
         display: flex;
         flex-direction: row;
-
     }
 
-    #benefits>div {
+    #benefits > div {
         flex: 1;
     }
 
     #benefits-image {
-        order: 0;
+        order: 0
     }
 
     #benefits-mental {
         order: 1;
     }
 
-    #benefits-mental>div {
+    #benefits-mental > div {
         align-self: flex-start;
     }
 
-    #benefits-physical>div {
+    #benefits-physical > div {
         align-self: flex-end;
     }
 }
